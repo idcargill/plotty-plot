@@ -1,0 +1,18 @@
+body {
+  padding: 20px;
+  background-color: azure;
+  text-align: center;
+}
+
+.file-container {
+  border: 3px solid rgb(190, 243, 243);
+  background-color: rgb(190, 243, 243);
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  max-width: min-content;
+}
+
+#map {
+  border-radius: 20px;
+}
