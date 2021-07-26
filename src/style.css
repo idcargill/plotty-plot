@@ -5,14 +5,25 @@ body {
 }
 
 .file-container {
-  border: 3px solid rgb(190, 243, 243);
+  border: 3px solid rgb(32, 34, 34);
   background-color: rgb(190, 243, 243);
   margin-top: 20px;
   padding: 10px;
   border-radius: 4px;
-  max-width: min-content;
+  max-width: 50%;
 }
 
 #map {
   border-radius: 20px;
+}
+
+.input-form {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  border: 1px dashed black;
+  padding: 5px;
+}
+
+.input-form input {
+  grid-column: span;
 }

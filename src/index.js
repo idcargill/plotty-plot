@@ -1,9 +1,12 @@
 import token from './mapboxToken.js';
 import { createListElements } from './helpers.js';
 import { circleSettings } from './mapSettings.js';
+import addCustomPoint from './pointForm.js';
+import makeMyPoints from './makeMyPoints.js';
+import dmsConversion from './dmsConversion.js';
 
 // Map loads into DOM id (needs height)
-const myMap = L.map('map').setView([51.505, -0.09], 5);
+const myMap = L.map('leafletmap').setView([51.505, -0.09], 5);
 
 // Map Tiles
 L.tileLayer(
@@ -34,7 +37,7 @@ const polygon = L.polygon([
 
 // Popups attatched to map objects
 // home.bindPopup('<b>Hello Maps</b><br>I am a popup.').openPopup();
-circle.bindPopup('I am a circle');
+// circle.bindPopup('I am a circle');
 polygon.bindPopup('Blue area');
 
 // Popup on map
@@ -58,8 +61,6 @@ function onMapClick(ev) {
 
 myMap.on('click', onMapClick);
 
-// points
-
 function readUpload(fileLoaded) {
   let reader = new FileReader();
   reader.onload = (x) => {
@@ -79,7 +80,6 @@ function readUpload(fileLoaded) {
       document.querySelector('#fileList').after(i);
       const lat = i.children[1].textContent;
       const lon = i.children[2].textContent;
-      console.log(lat);
       const circle = L.circle([lat, lon], circleSettings).addTo(myMap);
       circle.bindPopup(i.firstChild.textContent);
     });
@@ -96,3 +96,12 @@ fileInput.addEventListener('change', (ev) => {
   const uploadedFile = fileInput.files[0];
   readUpload(uploadedFile);
 });
+
+// Clear local storage for testing
+document.querySelector('#clear').addEventListener('click', () => {
+  localStorage.clear();
+  console.log('Memory Cleared');
+});
+
+document.querySelector('#show-points').addEventListener('click', makeMyPoints);
+export { myMap };

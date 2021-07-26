@@ -16,4 +16,19 @@ function createListElements(arrayData) {
   return listylist;
 }
 
-export { createListElements };
+function toLocalStorage(x) {
+  const myPoints = localStorage.getItem('myPoints');
+  if (myPoints) {
+    const storage = [];
+    const parsedPoints = JSON.parse(myPoints);
+    storage.push(parsedPoints);
+    storage.push(x);
+    const updatedString = JSON.stringify(storage);
+    localStorage.setItem('myPoints', updatedString);
+  } else {
+    const point = JSON.stringify(x);
+    localStorage.setItem('myPoints', point);
+  }
+}
+
+export { createListElements, toLocalStorage };
