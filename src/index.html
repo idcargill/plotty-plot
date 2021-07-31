@@ -23,68 +23,87 @@
 <body>
     <h1>Mapping with Leaflet</h1>
     <div class='map-container'>
-        <div id='leafletmap' style="height:400px;"></div>
+        <div id='leafletmap'></div>
     </div>
+
+
+    <h3>Add GPS Points</h3>
     <div class='file-container'>
-        <div>
-            <input id='file-loader' type='file'></inpu>
-        </div>
-        <h3>Add GPS Points</h3>
-            <form id='point-form' class='input-form' action='/'>
+      
+        
+        <div class='coordinate'>
+            <h4>Add Point (Coordinates)</h4>
+            <p>example:  Elk Mountain<br>48.41356<br>2.15351</p>
+            <form class='coordinate-form' action='/'>
                 <label for='title'>Title</label>
                 <input type='text' id='title' name='title'>
                 <label for='lat'>Latitude</label>
                 <input 
-                    type="number" 
-                    id='lat' 
-                    name='lat' 
-                    step='.00000001' 
-                    min="-90.0" 
-                    max="90.0" >
+                type="number" 
+                id='lat' 
+                name='lat' 
+                step='.00000001' 
+                min="-90.0" 
+                max="90.0" >
                 <label for='lon'>Longitude</label>
                 <input 
-                    type="number" 
-                    id='lon' 
-                    name='lon' 
-                    step='.00000001' 
-                    min="-180.0" 
-                    max="180.0" >
-                <input type='submit' value="Submit">
+                type="number" 
+                id='lon' 
+                name='lon' 
+                step='.00000001' 
+                min="-180.0" 
+                max="180.0" >
+            <button class='add-btn' type='button'>Add Point</button>
             </form>
         </div>
-        <button type='button' id='show-points'>Show My Points</button>
-        
-    <div class='DMS-point'>
-        <form class='input-dms' action="/" id='dms-form'>
-            <label for='title'>name</label>
-            <input type='text' id='title' name='title'>
-        <div class='latitude'>
-            <label for='latDeg'>Degrees</label> -->
-            <input type='number' id='latDeg' name='latDeg' step='1' min='-90' max='90' >
-            <label for='latMin'>Minutes</label>
-            <input type='number' id='latMin' name='latMin' step='1' min='-180' max='180'>
-            <label for='latSec'>Seconds</label>
-            <input type="number" id='latSec' name='latSec' step='.01'>
+        <div class='upload'>
+            <h4>Upload File</h4>
+            <input id='file-loader' type='file'></input>
+            <div>Drop File</div>
         </div>
-            <div class='longitude'>
-                    <label for='lonDeg'>Degrees</label> 
+                
+        <div class='dms'>
+                <h4>Add Point (DMS)</h4>
+                <p>example: 48&#176 45' 14.12  N<br>
+                    3&#176 50' 5.57 W
+                </p>
+                
+                <form  action="/" id='dms-form'>
+                    <label for='title'>Title</label>
+                    <input type='text' id='title' name='title'>
+                    <div class='latitude'>
+                    <div>Latitude</div>
+                    <label for='latDeg'>Degrees N / S</label> 
+                    <input type='number' id='latDeg' name='latDeg' step='1' min='-90' max='90' >
+                    <label for='latMin'>Minutes</label>
+                    <input type='number' id='latMin' name='latMin' step='1' min='-180' max='180'>
+                    <label for='latSec'>Seconds</label>
+                    <input type="number" id='latSec' name='latSec' step='.01'>
+                </div>
+                <div class='longitude'>
+                    <div>Longitude</div>
+                    <label for='lonDeg'>Degrees E / W</label> 
                     <input type='number' id='lonDeg' name='lonDeg' step='1' min='-90' max='90' >
                     <label for='lonMin'>Minutes</label>
                     <input type='number' id='lonMin' name='lonMin' step='1' min='-180' max='180'>
                     <label for='lonSec'>Seconds</label>
                     <input type='number' id='lonSec' name='lonSec' step='.01'>
                 </div>
-                    
+                
                 <div>
-                    <input class='submit-btn' type='submit' value='Submit'>
+                    <button class='add-btn' type='button'>Add Point</button>
                 </div>
             </form>
-    </div>
-
+        </div> 
+        <div class='bottom-btn'>
+            <button type='button' id='show-points'>Show My Points</button>
+            <button id='clear'>Clear</button>
+        </div>
+    </div><!--file container-->
+            
     <div class='data-display'>
         <table id='fileList'>
         </table>
     </div>
-    <button id='clear'>Clear</button>
 </body>
 </html>

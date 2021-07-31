@@ -1,29 +1,82 @@
 body {
-  padding: 20px;
-  background-color: azure;
-  text-align: center;
+	background-color: azure;
+	text-align: center;
+	max-width: 80%;
+	margin: auto;
+}
+
+#leafletmap {
+	height: 600px;
+	border-radius: 20px 50px;
 }
 
 .file-container {
-  border: 3px solid rgb(32, 34, 34);
-  background-color: rgb(190, 243, 243);
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 4px;
-  max-width: 50%;
+	/* height: 400px; */
+	display: grid;
+	grid-template-rows: auto auto auto auto;
+	max-width: 70%;
+	/* margin: auto; */
 }
 
-#map {
-  border-radius: 20px;
+.file-container > div {
+	border: 1px solid black;
+	padding: 5px;
 }
 
-.input-form {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  border: 1px dashed black;
-  padding: 5px;
+.upload,
+.coordinate {
+	grid-row: 1;
 }
 
-.input-form input {
-  grid-column: span;
+.dms {
+	grid-row: 2/4;
+	grid-column: 1/3;
+}
+
+.bottom-btn {
+	grid-row: 4;
+	grid-column: 1/3;
+}
+
+.coordinate form {
+	display: grid;
+	grid-template-columns: 20% 70%;
+}
+
+.coordinate input {
+	max-width: 100px;
+}
+
+/* add-point buttons ==============*/
+.add-btn {
+	grid-column: 1/3;
+	border-radius: 100%;
+	width: 60px;
+	margin: auto;
+	padding: 10px;
+	background-color: blue;
+	color: white;
+	margin-top: 10px;
+}
+
+.add-btn:hover {
+	background-color: cyan;
+	color: blue;
+}
+
+.add-btn:active {
+	background-color: blue;
+}
+/* ==========================*/
+
+h4 {
+	margin: 10px;
+}
+
+.dms input {
+	max-width: 60px;
+}
+
+input[name='title'] {
+	max-width: 200px;
 }
