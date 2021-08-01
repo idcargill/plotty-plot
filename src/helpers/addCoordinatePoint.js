@@ -1,6 +1,6 @@
-import { toLocalStorage } from './helpers.js';
-import { circleSettings } from './mapSettings.js';
-import { myMap } from './index.js';
+import toLocalStorage from './toLocalStorage.js';
+import { circleSettings, pointSettings } from '../mapSettings.js';
+import { myMap } from '../index.js';
 const form = document.querySelector('.coordinate-form');
 
 function addCoordinatePoint() {
@@ -10,7 +10,7 @@ function addCoordinatePoint() {
 	const result = { Title: title, lat: lat, lon: lon };
 	toLocalStorage(result);
 	console.log(`new data point: ${result.title} ${lat}, ${lon}`);
-	const circle = L.circle([lat, lon], circleSettings).addTo(myMap);
+	const circle = L.circle([lat, lon], pointSettings).addTo(myMap);
 	form.reset();
 }
 
