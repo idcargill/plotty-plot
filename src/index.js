@@ -125,3 +125,7 @@ document.querySelector('#click-point').addEventListener('click', () => {
 // Add Coordinate Point to storage and map
 const addCoordinateBtn = document.querySelector('#coordBtn');
 addCoordinateBtn.addEventListener('click', addCoordinatePoint);
+
+// Add DMS Point
+const dmsBtn = document.querySelector('#dmsBtn');
+dmsBtn.addEventListener('click', dmsConversion);
