@@ -26,14 +26,18 @@
         <div id='leafletmap'></div>
     </div>
 
-
+<div class='gps-points-wrapper'>
     <h3>Add GPS Points</h3>
     <div class='file-container'>
-      
-        
         <div class='coordinate'>
             <h4>Add Point (Coordinates)</h4>
-            <p>example:  Elk Mountain<br>48.41356<br>2.15351</p>
+            <div class='example'>
+                <pre>example: Peak C141
+Latitude 47.764662
+Longitude: -123.151253
+</pre>
+                <button id='coordBtn' class='add-btn' type='button'>Add Point</button>
+            </div>
             <form class='coordinate-form' action='/'>
                 <label for='title'>Title</label>
                 <input type='text' id='title' name='title'>
@@ -53,7 +57,7 @@
                 step='.00000001' 
                 min="-180.0" 
                 max="180.0" >
-            <button class='add-btn' type='button'>Add Point</button>
+               
             </form>
         </div>
         <div class='upload'>
@@ -61,17 +65,22 @@
             <input id='file-loader' type='file' accept=".csv, application/json, .xls, .xlsx"></input>
             <div>Drop File</div>
         </div>
-                
+        
         <div class='dms'>
-                <h4>Add Point (DMS)</h4>
+            <h4>Add Point (DMS)</h4>
+            <div class='example'>
                 <p>example: 48&#176 45' 14.12  N<br>
                     3&#176 50' 5.57 W
                 </p>
-                
-                <form  action="/" id='dms-form'>
-                    <label for='title'>Title</label>
-                    <input type='text' id='title' name='title'>
-                    <div class='latitude'>
+                <span>
+                    <button class='add-btn' type='button'>Add Point</button>
+                </span>
+            </div>
+            
+            <form  action="/" id='dms-form'>
+                <label for='title'>Title</label>
+                <input type='text' id='title' name='title'>
+                <div class='latitude'>
                     <div>Latitude</div>
                     <label for='latDeg'>Degrees N / S</label> 
                     <input type='number' id='latDeg' name='latDeg' step='1' min='-90' max='90' >
@@ -90,17 +99,17 @@
                     <input type='number' id='lonSec' name='lonSec' step='.01'>
                 </div>
                 
-                <div>
-                    <button class='add-btn' type='button'>Add Point</button>
-                </div>
+                
             </form>
         </div> 
         <div class='bottom-btn'>
             <button type='button' id='show-points'>Show My Points</button>
             <button id='clear'>Clear</button>
-        </div>
+            <button id='click-point'>Add Points on Map</button>
+        </div><!--btn-->
     </div><!--file container-->
-            
+</div> <!--GPS Points Wrapper-->
+    
     <div class='data-display'>
         <table id='fileList'>
         </table>

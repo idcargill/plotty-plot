@@ -1,7 +1,7 @@
 import token from './mapboxToken.js';
 import { createListElements } from './helpers.js';
 import { circleSettings } from './mapSettings.js';
-import addCustomPoint from './pointForm.js';
+import addCoordinatePoint from './pointForm.js';
 import makeMyPoints from './makeMyPoints.js';
 import dmsConversion from './dmsConversion.js';
 import fileParser from './fileParse.js';
@@ -42,25 +42,25 @@ const polygon = L.polygon([
 polygon.bindPopup('Blue area');
 
 // Popup on map
-// const pop = L.popup()
-//   .setLatLng([51.51, -0.09])
-//   .setContent('I am a standalone popup')
-//   .openOn(myMap);
+const pop = L.popup();
 
-// Events
-function onMapClick(ev) {
-	pop
-		.setLatLng(ev.latlng)
-		.setContent('Here is: ' + ev.latlng.toString())
-		.openOn(myMap);
+// Add points when clicked on map
+let pointToggle = 0;
+
+function addPointClick(ev) {
+	if (pointToggle == 1) {
+		myMap.on('click', (ev) => {
+			console.log(pointToggle);
+			let latitude = ev.latlng.lat;
+			let longitude = ev.latlng.lng;
+			L.circle([latitude, longitude], circleSettings).addTo(myMap);
+			pop.setLatLng(ev.latlng).setContent(ev.latlng.toString()).openOn(myMap);
+		});
+	} else {
+		myMap.off('click', addPointClick);
+		console.log('nope');
+	}
 }
-//   const x = document.createElement('div');
-//   x.innerText = ev.latlng.toString();
-//   const pointList = document.querySelector('#points');
-//   pointList.after(x);
-// }
-
-myMap.on('click', onMapClick);
 
 function readUpload(fileLoaded) {
 	let reader = new FileReader();
@@ -103,7 +103,25 @@ fileInput.addEventListener('change', (ev) => {
 document.querySelector('#clear').addEventListener('click', () => {
 	localStorage.clear();
 	console.log('Memory Cleared');
+	// myMap.removeLayer(cicle);
 });
 
 document.querySelector('#show-points').addEventListener('click', makeMyPoints);
 export { myMap };
+
+// add points on map by clicking
+document.querySelector('#click-point').addEventListener('click', () => {
+	if (pointToggle == 0) {
+		pointToggle = 1;
+		myMap.on('click', addPointClick);
+		console.log('on');
+	} else if (pointToggle == 1) {
+		pointToggle = 0;
+		myMap.off('click', myMap, addPointClick);
+		console.log('off');
+	}
+});
+
+// Add Coordinate Point to storage and map
+const addCoordinateBtn = document.querySelector('#coordBtn');
+addCoordinateBtn.addEventListener('click', addCoordinatePoint);
