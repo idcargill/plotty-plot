@@ -72,14 +72,18 @@ document.querySelector('#show-points').addEventListener('click', makeMyPoints);
 export { myMap };
 
 // add points on map by clicking
-document.querySelector('#click-point').addEventListener('click', () => {
+document.querySelector('#click-point').addEventListener('click', (ev) => {
 	if (pointToggle == 0) {
 		pointToggle = 1;
-		myMap.on('click', addPointClick);
+		// myMap.on('click', addPointClick);
+		ev.target.textContent = 'ADD Points: ON';
+		ev.target.setAttribute('class', 'on');
 		console.log('on');
 	} else if (pointToggle == 1) {
+		ev.target.textContent = 'ADD Points: OFF';
+		ev.target.setAttribute('class', 'off');
 		pointToggle = 0;
-		myMap.off('click', myMap, addPointClick);
+		// myMap.off('click', myMap, addPointClick);
 		console.log('off');
 	}
 });

@@ -1,8 +1,40 @@
 body {
-	background-color: azure;
 	text-align: center;
+	background-color: azure;
+	margin: auto;
+	max-width: 80%;
+}
+
+/* main {
 	max-width: 80%;
 	margin: auto;
+} */
+
+nav {
+	display: flex;
+	flex-wrap: wrap;
+	background-color: rgba(80, 77, 77, 0.479);
+	border-radius: 10px;
+	margin: auto;
+	margin-bottom: 10px;
+	max-width: 75%;
+	justify-content: space-evenly;
+}
+
+nav a {
+	color: white;
+	padding: 10px;
+	text-decoration: none;
+	flex: 2 0 auto;
+	border-radius: 10px;
+}
+
+nav a:hover {
+	background-color: rgba(80, 77, 77, 0.8);
+}
+
+.map-container {
+	border: 1px dashed green;
 }
 
 #leafletmap {
@@ -110,4 +142,21 @@ input[name='title'] {
 .example {
 	display: flex;
 	justify-content: space-between;
+}
+
+/* Click-point Button ============================== */
+
+#click-point {
+	border-radius: 10px;
+	padding: 5px;
+	color: white;
+	max-width: 100px;
+}
+
+.on {
+	background-color: green;
+}
+
+.off {
+	background-color: red;
 }
