@@ -1,0 +1,13 @@
+body {
+  max-width: 600px;
+  margin: auto;
+}
+
+#leafletmap {
+  height: 400px;
+}
+
+#leafletmap2 {
+  height: 400px;
+  margin-top: 20px;
+}
