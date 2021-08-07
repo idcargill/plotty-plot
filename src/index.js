@@ -95,3 +95,14 @@ addCoordinateBtn.addEventListener('click', addCoordinatePoint);
 // Add DMS Point
 const dmsBtn = document.querySelector('#dmsBtn');
 dmsBtn.addEventListener('click', addDmsPoint);
+
+const dropSpot = document.querySelector('.drop-location');
+dropSpot.addEventListener('drop', (ev) => {
+	ev.preventDefault();
+	document.querySelector('.drop-location').textContent = 'dropped';
+	console.log(ev.dataTransfer.items);
+});
+
+dropSpot.addEventListener('dragover', (ev) => {
+	ev.preventDefault();
+});

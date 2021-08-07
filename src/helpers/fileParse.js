@@ -6,8 +6,10 @@ function fileParser(file) {
 		case 'application/json':
 			console.log('json');
 			break;
+		case 'application/geojson':
+			console.log('geoJson');
 		default:
-			console.log(type);
+			console.log('Default catch: ', type);
 	}
 }
 
