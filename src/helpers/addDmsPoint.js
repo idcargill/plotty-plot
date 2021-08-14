@@ -20,6 +20,7 @@ function addDmsPoint() {
 
 	// add point to map
 	const point = L.circle([latitude, longitude], circleSettings).addTo(myMap);
+	point.bindPopup(title);
 
 	// convert to 6 decimal place strings
 	const convertedLat = latitude.toFixed(6);

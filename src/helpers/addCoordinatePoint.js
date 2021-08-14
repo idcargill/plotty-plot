@@ -11,6 +11,7 @@ function addCoordinatePoint() {
 	toLocalStorage(result);
 	console.log(`new data point: ${result.title} ${lat}, ${lon}`);
 	const circle = L.circle([lat, lon], pointSettings).addTo(myMap);
+	circle.bindPopup(title);
 	form.reset();
 }
 
