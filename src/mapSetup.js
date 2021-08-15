@@ -25,4 +25,6 @@ const baseLayers = {
 
 const overlayMaps = {};
 
-export { myMap, baseLayers, overlayMaps };
+const mapControls = L.control.layers(baseLayers).addTo(myMap);
+
+export { myMap, baseLayers, overlayMaps, mapControls };
