@@ -1,0 +1,20 @@
+Functionality
+- Map layer controls 
+- add layers for individual coordinates
+- export selected layers to file. 
+- Iframe/modal popups for libraries
+
+Text
+- about 
+- how to setup data
+- intro
+
+CSS
+- make it look not terrible
+- background image
+- colors 
+- fonts
+- layout
+
+Data  
+- table of entered data? Drop down? 
