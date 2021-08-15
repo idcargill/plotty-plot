@@ -23,4 +23,6 @@ const baseLayers = {
 	base: baseMap,
 };
 
-export { myMap };
+const overlayMaps = {};
+
+export { myMap, baseLayers, overlayMaps };

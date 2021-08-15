@@ -1,5 +1,5 @@
 import { circleSettings } from '../mapSettings.js';
-import { myMap } from '../mapSetup.js';
+import { myMap, baseLayers, overlayMaps } from '../mapSetup.js';
 
 function findLatLong(row) {
 	const latRegex = /^(lat)|(latitude)/i;
@@ -24,6 +24,7 @@ function findLatLong(row) {
 
 // Read uploaded file
 function readUpload(fileLoaded) {
+	const groupArr = [];
 	let reader = new FileReader();
 	reader.onload = (x) => {
 		const data = JSON.parse(x.target.result);
@@ -39,11 +40,16 @@ function readUpload(fileLoaded) {
 			const latitude = i[coordIndexLookup.lat];
 			const longitude = i[coordIndexLookup.lon];
 
-			const circle = L.circle([latitude, longitude], circleSettings).addTo(
-				myMap
-			);
+			const circle = L.circle([latitude, longitude], circleSettings);
+			// Popup text from JSON file data
 			circle.bindPopup(JSON.stringify(i));
+			groupArr.push(circle);
 		});
+		// Add Group to map
+		// const fileData = L.featureGroup(groupArr).addTo(myMap);
+		const fileData = L.featureGroup(groupArr);
+		Object.assign(overlayMaps, { file_Data: fileData });
+		L.control.layers(baseLayers, overlayMaps).addTo(myMap);
 	};
 	reader.readAsText(fileLoaded);
 }

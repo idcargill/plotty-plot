@@ -50,7 +50,7 @@ fileInput.addEventListener('change', (ev) => {
 	ev.preventDefault();
 	const uploadedFile = fileInput.files[0];
 	fileParser(uploadedFile);
-	readUpload(uploadedFile);
+	// readUpload(uploadedFile);
 });
 
 // EVENT Drop File
