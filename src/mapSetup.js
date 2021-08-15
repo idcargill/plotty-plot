@@ -54,9 +54,12 @@ const baseMaps = {
 };
 
 // Empty Overlay container
-const overlayMaps = {};
+const emptyLayer = L.layerGroup([]);
+const overlayMaps = {
+  myPoints: emptyLayer,
+};
 
 // Initialize Map Controls
-L.control.layers(baseMaps).addTo(myMap);
+L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
 export { myMap, overlayMaps };
