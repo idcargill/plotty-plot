@@ -1,4 +1,4 @@
-import { circleSettings } from '../mapSettings.js';
+import { circleSettings } from '../map/mapSettings.js';
 import { myMap } from '../index.js';
 
 function makeMyPoints() {

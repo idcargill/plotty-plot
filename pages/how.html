@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plot Point Data</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""
-    />
-    <script
-      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""
-    ></script>
-    <script src="./index.js" type="module" defer></script>
-    <scritp src="./helpers.js" defer></scritp>
-    <link rel="stylesheet" href="../src/style.css" />
-  </head>
-  <body>
-    <h1>Setting Up Your Data</h1>
-    <nav>
-      <a href="./index.html">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./how.html">How to</a>
-      <a href="https://leafletjs.com/">Leaflet</a>
-      <a href="https://www.mapbox.com/">Mapbox</a>
-      <a href="https://www.openstreetmap.org/about">OpenStreetMap</a>
-    </nav>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Plot Point Data</title>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+			crossorigin=""
+		/>
+		<script
+			src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+			crossorigin=""
+		></script>
+		<script src="./index.js" type="module" defer></script>
+		<scritp src="./helpers.js" defer></scritp>
+		<link rel="stylesheet" href="../src/styles/main.css" />
+	</head>
+	<body>
+		<h1>Setting Up Your Data</h1>
+		<nav>
+			<a href="./index.html">Home</a>
+			<a href="./about.html">About</a>
+			<a href="./how.html">How to</a>
+			<a href="https://leafletjs.com/">Leaflet</a>
+			<a href="https://www.mapbox.com/">Mapbox</a>
+			<a href="https://www.openstreetmap.org/about">OpenStreetMap</a>
+		</nav>
 
-    <main>
-      <div>
-        <h3>File Structure</h3>
-        <p>
-          File drop takes a .json file of key:value pairs. There must be a key
-          one key of 'lat' or 'latitude' and another of 'lon' or 'longitude'.<br />
-          Case does not matter. Location of the key does not matter.
-        </p>
-      </div>
-      <div>
-        <h3>Individual Points</h3>
-        <p>
-          Add points using Degrees/minutes/seconds or Coordinates.<br />
-          all points will be added to the same layer with any file uploaded
-          points.
-        </p>
-      </div>
-    </main>
-  </body>
+		<main>
+			<div>
+				<h3>File Structure</h3>
+				<p>
+					File drop takes a .json file of key:value pairs. There must be a key
+					one key of 'lat' or 'latitude' and another of 'lon' or 'longitude'.<br />
+					Case does not matter. Location of the key does not matter.
+				</p>
+			</div>
+			<div>
+				<h3>Individual Points</h3>
+				<p>
+					Add points using Degrees/minutes/seconds or Coordinates.<br />
+					all points will be added to the same layer with any file uploaded
+					points.
+				</p>
+			</div>
+		</main>
+	</body>
 </html>

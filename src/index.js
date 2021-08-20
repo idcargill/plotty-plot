@@ -1,4 +1,4 @@
-import { myMap } from './mapSetup.js';
+import { myMap } from './map/mapSetup.js';
 import { addCoordinatePoint } from './helpers/addCoordinatePoint.js';
 import makeMyPoints from './helpers/makeMyPoints.js';
 import addDmsPoint from './helpers/addDmsPoint.js';
@@ -7,8 +7,8 @@ import { addPointOnClick } from './helpers/addPointOnClick.js';
 
 // Clear local storage for testing
 document.querySelector('#clear').addEventListener('click', () => {
-  localStorage.clear();
-  console.log('Memory Cleared');
+	localStorage.clear();
+	console.log('Memory Cleared');
 });
 
 // EVENT Add Coordinate Point to storage and map
@@ -22,21 +22,21 @@ dmsBtn.addEventListener('click', addDmsPoint);
 // EVENT File UPLOAD or DROP
 const fileInput = document.querySelector('#file-loader');
 fileInput.addEventListener('change', (ev) => {
-  ev.preventDefault();
-  const uploadedFile = fileInput.files[0];
-  fileParser(uploadedFile);
-  // readUpload(uploadedFile);
+	ev.preventDefault();
+	const uploadedFile = fileInput.files[0];
+	fileParser(uploadedFile);
+	// readUpload(uploadedFile);
 });
 
 // EVENT Drop File
 const dropSpot = document.querySelector('.drop-location');
 dropSpot.addEventListener('drop', (ev) => {
-  ev.preventDefault();
-  // document.querySelector('.drop-location').textContent = 'dropped';
-  console.log(ev.dataTransfer.items);
+	ev.preventDefault();
+	// document.querySelector('.drop-location').textContent = 'dropped';
+	console.log(ev.dataTransfer.items);
 });
 dropSpot.addEventListener('dragover', (ev) => {
-  ev.preventDefault();
+	ev.preventDefault();
 });
 
 export { myMap };

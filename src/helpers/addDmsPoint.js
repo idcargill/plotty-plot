@@ -1,49 +1,56 @@
 import toLocalStorage from '../helpers/toLocalStorage.js';
-import { pointSettings } from '../mapSettings.js';
-import { myMap, overlayMaps } from '../mapSetup.js';
+import { pointSettings } from '../map/mapSettings.js';
+import { myMap, overlayMaps } from '../map/mapSetup.js';
 const form = document.querySelector('#dms-form');
 
 function addDmsPoint() {
-  const title = form.title.value;
+	const title = form.title.value;
 
-  // Latitude Degrees
-  const latDeg = +form.latDeg.value;
-  const latMin = +form.latDeg.value;
-  const latSec = +form.latSec.value;
+	// Latitude Degrees
+	const latDeg = parseInt(form.latDeg.value);
+	const latMin = parseFloat(form.latMin.value) / 60;
+	const latSec = parseFloat(form.latSec.value) / 3600;
 
-  // Longitude Degrees
-  const lonDeg = +form.lonDeg.value;
-  const lonMin = +form.lonDeg.value;
-  const lonSec = +form.lonSec.value;
+	console.log(`${latDeg}, ${latMin}, ${latSec}`);
 
-  // Convert to decimal Coordinates
-  const latitude = latDeg + latMin / 60 + latSec / 3600;
-  const longitude = lonDeg + lonMin / 60 + lonSec / 3600;
+	// Longitude Degrees
+	const lonDeg = parseInt(form.lonDeg.value);
+	const lonMin = parseFloat(form.lonMin.value) / 60;
+	const lonSec = parseFloat(form.lonSec.value) / 3600;
 
-  // add point to map
-  const point = L.circle([latitude, longitude], pointSettings).addTo(myMap);
-  point.bindPopup(title);
+	console.log(`${lonDeg}, ${lonMin}, ${lonSec}`);
+	// Convert to decimal Coordinates
+	// const latitude = latDeg + latMin / 60 + latSec / 3600;
+	// const longitude = lonDeg + lonMin / 60 + lonSec / 3600;
+	const latitude = latDeg + latMin + latSec;
+	const longitude = lonDeg + lonMin + lonSec;
 
-  // convert to 6 decimal place strings
-  const convertedLat = latitude.toFixed(6);
-  const convertedLon = longitude.toFixed(6);
+	// console.log(`${latitude} : ${longitude}`);
 
-  // Add point to local storage
-  const storage = { title: title, lat: convertedLat, lon: convertedLon };
-  toLocalStorage(storage);
+	// add point to map
+	const point = L.circle([latitude, longitude], pointSettings).addTo(myMap);
+	point.bindPopup(title);
 
-  // Add Point to Layer
-  let newPoint = L.layerGroup([point]);
-  overlayMaps.myPoints.addLayer(newPoint);
+	// convert to 6 decimal place strings
+	const convertedLat = latitude.toFixed(6);
+	const convertedLon = longitude.toFixed(6);
 
-  // Fly Map to point
-  myMap.flyTo([convertedLat, convertedLon]);
+	// Add point to local storage
+	const storage = { title: title, lat: convertedLat, lon: convertedLon };
+	toLocalStorage(storage);
 
-  //Log
-  console.log(`${title}: ${convertedLat} , ${convertedLon}`);
+	// Add Point to Layer
+	let newPoint = L.layerGroup([point]);
+	overlayMaps.myPoints.addLayer(newPoint);
 
-  // Clear Form
-  form.reset();
+	// Fly Map to point
+	myMap.flyTo([convertedLat, convertedLon]);
+
+	//Log
+	console.log(`${title}: ${convertedLat} , ${convertedLon}`);
+
+	// Clear Form
+	form.reset();
 }
 
 export default addDmsPoint;
