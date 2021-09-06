@@ -142,8 +142,7 @@ nav a:hover {
 .latitude > div:first-of-type,
 .longitude > div:first-of-type {
 	grid-column: 1/3;
-	background-color: var(--lightBlue);
-	color: var(--cream);
+	text-align: center;
 	max-width: 200px;
 	border-radius: 5px;
 	padding: 5px;
@@ -205,6 +204,11 @@ nav a:hover {
 form {
 	text-align: right;
 	font-size: small;
+}
+
+form input {
+	margin-right: 30px;
+	margin-left: 30px;
 }
 
 /* About Page ==============================================*/
