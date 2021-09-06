@@ -3,7 +3,7 @@ import { addCoordinatePoint } from './helpers/addCoordinatePoint.js';
 import addDmsPoint from './helpers/addDmsPoint.js';
 import fileParser from './fileUpload/fileParser.js';
 import clearLocalHistory from './helpers/clearHistory.js';
-import loadLocalStoragePoints from './helpers/loadLocalStoragePoints.js';
+import loadFromLocalStoragePoints from './helpers/loadFromLocalStoragePoints.js';
 
 // EVENT Add Coordinate Point
 const addCoordinateBtn = document.querySelector('#coordBtn');
@@ -42,5 +42,5 @@ document.querySelector(
 ).checked = true;
 
 // Load Local Storage points
-loadLocalStoragePoints();
+loadFromLocalStoragePoints();
 export { myMap };
