@@ -4,7 +4,10 @@ import addDmsPoint from './helpers/addDmsPoint.js';
 import fileParser from './fileUpload/fileParser.js';
 import addPointOnClick from './helpers/addPointOnClick.js';
 import clearLocalHistory from './helpers/clearHistory.js';
-import loadLocalStorage from './helpers/loadLocalStorage.js';
+import loadLocalStoragePoints from './helpers/loadLocalStoragePoints.js';
+
+// Load Local Storage points
+loadLocalStoragePoints();
 
 // EVENT Add Coordinate Point
 const addCoordinateBtn = document.querySelector('#coordBtn');
@@ -46,9 +49,6 @@ document.querySelector('#click-point').addEventListener('click', (e) => {
 document.querySelector(
 	'div.leaflet-control-layers-overlays > label > div > input'
 ).checked = true;
-
-// Load Local Storage points
-loadLocalStorage();
 
 export { myMap };
 
