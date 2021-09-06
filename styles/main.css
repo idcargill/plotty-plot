@@ -325,7 +325,7 @@ footer {
 	text-align: left;
 	margin: auto;
 	max-width: 70%;
-	height: 600px;
+	height: 550px;
 	background-color: var(--darkBase);
 	padding: 10px;
 	border: 5px solid var(--buttonColor);
