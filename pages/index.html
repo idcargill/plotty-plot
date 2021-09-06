@@ -37,10 +37,10 @@
             </div>
             
             <div class='gps-points-wrapper'>
-                <h3>Add GPS Points</h3>
+                <h3>Add Individual points or upload a file</h3>
                 <div class='file-container'>
                     <div class='coordinate'>
-                        <h4>Add Point (Coordinates)</h4>
+                        <h4>Add Point <br>(Coordinates)</h4>
                         <div class='example'>
                             example: <br>Peak C141<br>
                                 Latitude 47.764662<br>
@@ -70,27 +70,27 @@
                         </form>
                     </div>
                     <div class='upload'>
-                        <h4>Upload File</h4>
+                        <h4>Upload File <br>(JSON format)</h4>
+                        <div class='drop-location example'>Drop .json file... </div>
                         <input id='file-loader' type='file' accept=".csv, application/json, .xls, .xlsx"></input>
-                        <div class='drop-location'>drop .json file </div>
-                        <!-- <span class='drop-location'></span></div> -->
                     </div>
                     
                     <div class='dms'>
-                        <h4>Add Point (DMS)</h4>
+                        <h4>Add Point<br>(DMS)</h4>
                         <div class='example'>
-                            <p>example: 48&#176 45' 14.12  N<br>
-                                3&#176 50' 5.57 W
-                            </p>
-                            <span>
-                                <button id='dmsBtn' class='add-btn' type='button'>Add Point</button>
-                            </span>
+                            example: <br>
+                            Trail Vanishes<br>
+                            47&#176 50' 42.12  N<br>
+                                -123&#176 23' 15.25 W
+                            
                         </div>
                         
                         <form  action="/" id='dms-form'>
-                            <label for='title'>Title</label>
-                            <input type='text' id='title' name='title'>
-                            <div class='latitude'>
+                            <div class='dms-title'>
+                                <label for='title'>Title</label>
+                                <input type='text' id='title' name='title'>
+                            </div>
+                                <div class='latitude'>
                                 <div>Latitude</div>
                                 <label for='latDeg'>Degrees N / S</label> 
                                 <input type='number' id='latDeg' name='latDeg' step='1' min='-90' max='90' >
@@ -108,6 +108,9 @@
                                 <label for='lonSec'>Seconds</label>
                                 <input type='number' id='lonSec' name='lonSec' step='.01'>
                             </div>
+                            
+                           
+                                <button id='dmsBtn' class='add-btn' type='button'>Add Point</button>
                             
                             
                         </form>

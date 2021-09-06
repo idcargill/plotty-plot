@@ -1,3 +1,11 @@
+:root {
+	--base: rgb(244, 245, 202);
+	--navLight: rgba(80, 77, 77, 0.4);
+	--navDark: rgba(80, 77, 77, 0.8);
+	--cream: rgb(247, 247, 247);
+	--lightBlue: rgb(93, 190, 247);
+}
+
 body {
 	text-align: center;
 	background-image: url('../../images/topoImg.jpg');
@@ -8,7 +16,7 @@ body {
 
 /* Container for all =======================*/
 .container {
-	background-color: rgb(244, 245, 202);
+	background-color: var(--base);
 	max-width: 60%;
 	min-height: 900px;
 	margin: -100px auto 10px auto;
@@ -18,18 +26,18 @@ body {
 
 /* NAV BAR ============================*/
 nav {
+	color: var(--cream);
 	display: flex;
 	flex-wrap: wrap;
-	background-color: rgba(80, 77, 77, 0.479);
+	background-color: var(--navDark);
 	border-radius: 10px;
-	margin: auto;
-	margin-bottom: 10px;
+	margin: 0 auto 10px auto;
 	max-width: 75%;
 	justify-content: space-evenly;
 }
 
 nav a {
-	color: white;
+	color: var(--cream);
 	padding: 10px;
 	text-decoration: none;
 	flex: 2 0 auto;
@@ -37,7 +45,8 @@ nav a {
 }
 
 nav a:hover {
-	background-color: rgba(80, 77, 77, 0.8);
+	background-color: var(--navDark);
+	font-weight: 600;
 }
 
 /* HOMEPAGE ========================= */
@@ -58,13 +67,14 @@ nav a:hover {
 /* File Containger GRID =========== */
 .file-container {
 	display: grid;
-	grid-template-rows: auto auto auto auto;
-	grid-template-columns: 30% auto auto;
+	grid-template-rows: auto auto auto;
+	grid-template-columns: 40% auto;
 }
 
 .file-container > div {
 	border: 1px solid black;
 	padding: 5px;
+	background-color: var(--base);
 }
 
 .example {
@@ -72,9 +82,10 @@ nav a:hover {
 	text-align: left;
 	margin: 0 auto 10px auto;
 	max-width: 60%;
-	background-color: rgba(163, 163, 163, 0.322);
+	background-color: var(--navLight);
 	border-radius: 5px;
 	padding: 5px;
+	min-height: 75px;
 }
 
 .coordinate form {
@@ -94,44 +105,78 @@ nav a:hover {
 }
 
 /* FILE UPLOAD ===================== */
-
-.upload,
-.coordinate {
-	grid-row: 2;
-}
-
-.upload div {
-	background-color: rgba(20, 20, 20, 0.2);
+#file-loader {
 	border-radius: 5px;
-	width: 70%;
-	height: 50%;
-	margin: auto;
-	margin-top: 20px;
-}
-
-.upload > input {
-	/* background-color: blue; */
-	border: 1px solid rgb(163, 248, 248);
-	padding: 5px;
-	border-radius: 5px;
+	text-align: center;
+	margin: 20px auto auto 20px;
 	max-width: 200px;
-	margin: auto;
+}
+
+.upload {
+	grid-row: 2;
+	grid-column: 1/3;
 }
 
 /* DMS ================= */
 .dms {
-	grid-row: 2;
-	grid-column: 3/4;
+	grid-row: 1;
+	grid-column: 2/3;
+	font-size: smaller;
 }
 
-.dms input {
-	max-width: 60px;
+#dms-form {
+	display: grid;
+	grid-template-columns: 30% 70%;
+	grid-template-rows: 3;
+}
+
+#dms-form input {
+	margin-left: 30px;
+}
+
+#dms-form input,
+#dms-form label {
+	margin-top: 5px;
+}
+
+.latitude > div:first-of-type,
+.longitude > div:first-of-type {
+	grid-column: 1/3;
+	background-color: var(--lightBlue);
+	color: var(--cream);
+	max-width: 200px;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.dms-title {
+	display: grid;
+	grid-template-columns: 20% 80%;
+	grid-column: 1/3;
+	grid-row: 1;
+}
+
+.latitude,
+.longitude {
+	display: grid;
+	grid-template-columns: 20% 80%;
+	grid-column: 1/3;
+}
+
+.latitude {
+	grid-row: 2;
+}
+
+.latitude label,
+.longitude label {
+	grid-column: 1;
 }
 
 /* Clear History Button ======== */
 .bottom-btn {
 	grid-row: 3;
-	grid-column: 1/4;
+	grid-column: 1/3;
 }
 
 /* add-point buttons ==============*/
@@ -141,29 +186,25 @@ nav a:hover {
 	width: 60px;
 	margin: auto;
 	padding: 10px;
-	background-color: blue;
-	color: white;
+	background-color: var(--lightBlue);
+	color: var(--cream);
 	margin-top: 10px;
 	font-size: 10px;
 }
 
 .add-btn:hover {
-	background-color: cyan;
+	background-color: var(--lightBlue);
 	color: blue;
 }
 
 .add-btn:active {
 	background-color: blue;
+	color: var(--cream);
 }
 
-/* input[name='title'] {
-	max-width: 200px;
-} */
-
-.latitude div,
-.longitude div {
-	text-align: left;
-	margin-top: 8px;
+form {
+	text-align: right;
+	font-size: small;
 }
 
 /* About Page ==============================================*/
@@ -193,7 +234,7 @@ nav a:hover {
 footer {
 	max-width: 70%;
 	margin: 200px auto 0 auto;
-	border: 5px solid rgb(145, 232, 243);
+	border: 5px solid var(--lightBlue);
 	border-radius: 5px;
 	padding: 20px;
 }
