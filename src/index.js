@@ -1,10 +1,10 @@
 import { myMap } from './map/mapSetup.js';
 import { addCoordinatePoint } from './helpers/addCoordinatePoint.js';
-import showMyPoints from './helpers/showMyPoints.js';
 import addDmsPoint from './helpers/addDmsPoint.js';
 import fileParser from './fileUpload/fileParser.js';
-import { addPointOnClick } from './helpers/addPointOnClick.js';
+import addPointOnClick from './helpers/addPointOnClick.js';
 import clearLocalHistory from './helpers/clearHistory.js';
+import loadLocalStorage from './helpers/loadLocalStorage.js';
 
 // EVENT Add Coordinate Point
 const addCoordinateBtn = document.querySelector('#coordBtn');
@@ -32,16 +32,23 @@ dropSpot.addEventListener('dragover', (ev) => {
 	ev.preventDefault();
 });
 
-// EVENT Show Points
-const showPointsBtn = document.querySelector('#show-points');
-showPointsBtn.addEventListener('click', (e) => {
-	showMyPoints();
-});
-
 // EVENT Clear Local Storage with Alert Confirmation
 document.querySelector('#clear').addEventListener('click', (e) => {
 	clearLocalHistory(e);
 });
+
+// EVENT Add Point on Click
+document.querySelector('#click-point').addEventListener('click', (e) => {
+	addPointOnClick();
+});
+
+// Set points to show by default
+document.querySelector(
+	'div.leaflet-control-layers-overlays > label > div > input'
+).checked = true;
+
+// Load Local Storage points
+loadLocalStorage();
 
 export { myMap };
 

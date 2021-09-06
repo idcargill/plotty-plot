@@ -5,20 +5,6 @@ const token =
 // Map loads into DOM id (needs height)
 const myMap = L.map('leafletmap').setView([51.505, -0.09], 5);
 
-// Base World Map
-// const baseMap = L.tileLayer(
-//   'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
-//   {
-//     attribution:
-//       'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-//     maxZoom: 18,
-//     id: 'mapbox/streets-v11',
-//     tileSize: 512,
-//     zoomOffset: -1,
-//     accessToken: token,
-//   }
-// ).addTo(myMap);
-
 // Satalite Map
 const satalite = L.tileLayer(
 	'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
@@ -61,5 +47,10 @@ const overlayMaps = {
 
 // Initialize Map Controls
 L.control.layers(baseMaps, overlayMaps).addTo(myMap);
+
+// Set points to show by default
+document.querySelector(
+	'div.leaflet-control-layers-overlays > label > div > input'
+).checked = true;
 
 export { myMap, overlayMaps };

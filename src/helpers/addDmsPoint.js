@@ -20,8 +20,6 @@ function addDmsPoint() {
 
 	console.log(`${lonDeg}, ${lonMin}, ${lonSec}`);
 	// Convert to decimal Coordinates
-	// const latitude = latDeg + latMin / 60 + latSec / 3600;
-	// const longitude = lonDeg + lonMin / 60 + lonSec / 3600;
 	const latitude = latDeg + latMin + latSec;
 	const longitude = lonDeg + lonMin + lonSec;
 

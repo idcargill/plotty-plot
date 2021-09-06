@@ -1,16 +1,14 @@
+import { myMap, overlayMaps } from '../map/mapSetup.js';
+import { circleSettings, pointSettings } from '../map/mapSettings.js';
+
 function addPointOnClick(ev) {
-	if (pointToggle == 1) {
-		myMap.on('click', (ev) => {
-			console.log(pointToggle);
-			let latitude = ev.latlng.lat;
-			let longitude = ev.latlng.lng;
-			L.circle([latitude, longitude], circleSettings).addTo(myMap);
-			pop.setLatLng(ev.latlng).setContent(ev.latlng.toString()).openOn(myMap);
-		});
-	} else {
-		myMap.off('click', addPointClick);
-		console.log('nope');
-	}
+	myMap.on('click', (ev) => {
+		let lat = ev.latlng.lat;
+		let lon = ev.latlng.lng;
+		const point = L.circle([lat, lon], pointSettings);
+		let newLayer = L.layerGroup([point]);
+		overlayMaps.myPoints.addLayer(newLayer);
+	});
 }
 
-export { addPointOnClick };
+export default addPointOnClick;
