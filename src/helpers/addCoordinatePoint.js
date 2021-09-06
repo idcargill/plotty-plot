@@ -33,4 +33,4 @@ function addCoordinatePoint() {
 	form.reset();
 }
 
-export { addCoordinatePoint };
+export default addCoordinatePoint;

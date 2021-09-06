@@ -1,5 +1,5 @@
 import { myMap } from './map/mapSetup.js';
-import { addCoordinatePoint } from './helpers/addCoordinatePoint.js';
+import addCoordinatePoint from './helpers/addCoordinatePoint.js';
 import addDmsPoint from './helpers/addDmsPoint.js';
 import fileParser from './fileUpload/fileParser.js';
 import addPointOnClick from './helpers/addPointOnClick.js';
@@ -41,8 +41,17 @@ document.querySelector('#clear').addEventListener('click', (e) => {
 });
 
 // EVENT Add Point on Click
-document.querySelector('#click-point').addEventListener('click', (e) => {
-	addPointOnClick();
+const pointsToggle = { active: false };
+const addPointsBtn = document.querySelector('#click-point');
+addPointsBtn.addEventListener('click', (e) => {
+	pointsToggle.active = !pointsToggle.active;
+	console.log(pointsToggle.active);
+
+	if (pointsToggle.active) {
+		addPointOnClick(e);
+	} else {
+		addPointsBtn.removeEventListener('click', addPointOnClick);
+	}
 });
 
 // Set points to show by default
@@ -51,26 +60,3 @@ document.querySelector(
 ).checked = true;
 
 export { myMap };
-
-// // Add points when clicked on map
-// let pointToggle = 0;
-
-// // Show My Points Event
-// document.querySelector('#show-points').addEventListener('click', makeMyPoints);
-
-// // add points on map by clicking
-// document.querySelector('#click-point').addEventListener('click', (ev) => {
-//   if (pointToggle == 0) {
-//     pointToggle = 1;
-//     // myMap.on('click', addPointOnClick);
-//     ev.target.textContent = 'ADD Points: ON';
-//     ev.target.setAttribute('class', 'on');
-//     console.log('on');
-//   } else if (pointToggle == 1) {
-//     ev.target.textContent = 'ADD Points: OFF';
-//     ev.target.setAttribute('class', 'off');
-//     pointToggle = 0;
-//     // myMap.off('click', myMap, addPointClick);
-//     console.log('off');
-//   }
-// });

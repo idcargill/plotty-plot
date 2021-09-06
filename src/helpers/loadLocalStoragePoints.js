@@ -5,6 +5,7 @@ import { myMap, overlayMaps } from '../map/mapSetup.js';
 
 const loadLocalStoragePoints = () => {
 	const myPoints = localStorage.getItem('myPoints');
+	console.log(myPoints);
 
 	if (myPoints) {
 		const parsedPoints = JSON.parse(myPoints);
