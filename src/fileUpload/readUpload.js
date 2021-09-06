@@ -8,7 +8,7 @@ function findLatLong(row) {
 	let latIndex = '';
 	let longIndex = '';
 
-	Object.keys(row).forEach((name, index) => {
+	Object.keys(row).forEach((name) => {
 		if (latRegex.test(name)) {
 			// console.log(`lat pass ${name} ${index}`);
 			latIndex = name;
@@ -26,7 +26,7 @@ function findLatLong(row) {
 function readUpload(fileLoaded) {
 	const fileName = fileLoaded.name;
 	if (myMap.fileControl) {
-		myMap.removeControl(fileControl);
+		myMap.removeControl(myMap.fileControl);
 	}
 	const groupArr = [];
 	let reader = new FileReader();
