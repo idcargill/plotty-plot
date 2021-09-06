@@ -4,14 +4,9 @@ import makeMyPoints from './helpers/makeMyPoints.js';
 import addDmsPoint from './helpers/addDmsPoint.js';
 import fileParser from './fileUpload/fileParser.js';
 import { addPointOnClick } from './helpers/addPointOnClick.js';
+import clearLocalHistory from './helpers/clearHistory.js';
 
-// Clear local storage for testing
-document.querySelector('#clear').addEventListener('click', () => {
-	localStorage.clear();
-	console.log('Memory Cleared');
-});
-
-// EVENT Add Coordinate Point to storage and map
+// EVENT Add Coordinate Point
 const addCoordinateBtn = document.querySelector('#coordBtn');
 addCoordinateBtn.addEventListener('click', addCoordinatePoint);
 
@@ -25,18 +20,21 @@ fileInput.addEventListener('change', (ev) => {
 	ev.preventDefault();
 	const uploadedFile = fileInput.files[0];
 	fileParser(uploadedFile);
-	// readUpload(uploadedFile);
 });
 
 // EVENT Drop File
 const dropSpot = document.querySelector('.drop-location');
 dropSpot.addEventListener('drop', (ev) => {
 	ev.preventDefault();
-	// document.querySelector('.drop-location').textContent = 'dropped';
 	console.log(ev.dataTransfer.items);
 });
 dropSpot.addEventListener('dragover', (ev) => {
 	ev.preventDefault();
+});
+
+// EVENT Clear Local Storage with Alert Confirmation
+document.querySelector('#clear').addEventListener('click', (e) => {
+	clearLocalHistory(e);
 });
 
 export { myMap };

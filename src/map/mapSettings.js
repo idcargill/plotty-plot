@@ -6,10 +6,10 @@ const circleSettings = {
 };
 
 const pointSettings = {
-	color: 'purple',
-	fillColor: 'lightPurple',
+	color: 'maroon',
+	fillColor: 'red',
 	fillOpacity: 0.5,
-	radius: 100,
+	radius: 500,
 };
 
 export { circleSettings, pointSettings };
