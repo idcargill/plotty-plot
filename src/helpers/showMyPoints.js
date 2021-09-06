@@ -1,23 +1,23 @@
 import { circleSettings } from '../map/mapSettings.js';
 import { myMap } from '../index.js';
 
-function makeMyPoints() {
+function showMyPoints() {
 	const storage = localStorage.getItem('myPoints');
-	const storageArr = JSON.parse(storage);
+	const storageArr = Array.from(JSON.parse(storage));
 	console.log(storageArr);
 
 	// generate points from local storage
-	if (storageArr instanceof Array) {
-		storageArr.forEach((i) => {
-			const lat = parseFloat(i.lat);
-			const lon = parseFloat(i.lon);
-			const title = i.title;
-			console.log(lat, lon, title);
-			const circle = L.circle([lat, lon], circleSettings).addTo(myMap);
-			circle.bindPopup(title);
-		});
-		console.log('points displayed');
-	}
+
+	storageArr.forEach((i) => {
+		const lat = parseFloat(i.lat);
+		const lon = parseFloat(i.lon);
+		const title = i.title;
+		console.log(lat, lon, title);
+		const circle = L.circle([lat, lon], circleSettings).addTo(myMap);
+		circle.bindPopup(title);
+	});
+	console.log('points displayed');
+
 	// map a single point form obj
 	const lat = storageArr.lat;
 	const lon = storageArr.lon;
@@ -27,4 +27,4 @@ function makeMyPoints() {
 	circle.bindPopup(title);
 }
 
-export default makeMyPoints;
+export default showMyPoints;

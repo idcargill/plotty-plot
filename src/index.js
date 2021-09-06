@@ -1,6 +1,6 @@
 import { myMap } from './map/mapSetup.js';
 import { addCoordinatePoint } from './helpers/addCoordinatePoint.js';
-import makeMyPoints from './helpers/makeMyPoints.js';
+import showMyPoints from './helpers/showMyPoints.js';
 import addDmsPoint from './helpers/addDmsPoint.js';
 import fileParser from './fileUpload/fileParser.js';
 import { addPointOnClick } from './helpers/addPointOnClick.js';
@@ -30,6 +30,12 @@ dropSpot.addEventListener('drop', (ev) => {
 });
 dropSpot.addEventListener('dragover', (ev) => {
 	ev.preventDefault();
+});
+
+// EVENT Show Points
+const showPointsBtn = document.querySelector('#show-points');
+showPointsBtn.addEventListener('click', (e) => {
+	showMyPoints();
 });
 
 // EVENT Clear Local Storage with Alert Confirmation
