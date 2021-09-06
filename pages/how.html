@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Plot Point Data</title>
+		<title>Plot Point: How To</title>
 		<link
 			rel="stylesheet"
 			href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -18,36 +18,36 @@
 		></script>
 		<script src="./index.js" type="module" defer></script>
 		<scritp src="./helpers.js" defer></scritp>
-		<link rel="stylesheet" href="../src/styles/main.css" />
+		<link rel="stylesheet" href="../styles/main.css" />
 	</head>
 	<body>
-		<h1>Setting Up Your Data</h1>
-		<nav>
-			<a href="./index.html">Home</a>
-			<a href="./about.html">About</a>
-			<a href="./how.html">How to</a>
-			<a href="https://leafletjs.com/">Leaflet</a>
-			<a href="https://www.mapbox.com/">Mapbox</a>
-			<a href="https://www.openstreetmap.org/about">OpenStreetMap</a>
-		</nav>
+		<div class="container">
+			<h1>Setting Up Your Data</h1>
+			<nav>
+				<a href="./index.html">Home</a>
+				<a href="./how.html">How to plot data</a>
+				<a href="./about.html">About</a>
+			</nav>
 
-		<main>
-			<div>
-				<h3>File Structure</h3>
-				<p>
-					File drop takes a .json file of key:value pairs. There must be a key
-					one key of 'lat' or 'latitude' and another of 'lon' or 'longitude'.<br />
-					Case does not matter. Location of the key does not matter.
-				</p>
-			</div>
-			<div>
-				<h3>Individual Points</h3>
-				<p>
-					Add points using Degrees/minutes/seconds or Coordinates.<br />
-					all points will be added to the same layer with any file uploaded
-					points.
-				</p>
-			</div>
-		</main>
+			<main class="main-how-to">
+				<div>
+					<h4>JSON FILE</h4>
+					<p>
+						File drop takes a .json file of key:value pairs. <br />
+						There must be one key of 'lat' or 'latitude' and another of 'lon' or
+						'longitude'.<br />
+						Case and location of the keys does not matter. <br />
+					</p>
+					<p>{data: 'Details...', lat: 50.2, Longitude: -122.24, ...}</p>
+				</div>
+				<div>
+					<h4>Individual Points</h4>
+					<p>
+						Add points using Degrees/minutes/seconds or Coordinates.<br />
+						All points will be added to the same layer with any uploaded data.
+					</p>
+				</div>
+			</main>
+		</div>
 	</body>
 </html>

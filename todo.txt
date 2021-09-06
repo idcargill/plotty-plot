@@ -2,7 +2,6 @@ Functionality
 - Map layer controls 
 - add layers for individual coordinates
 - export selected layers to file. 
-- Iframe/modal popups for libraries
 
 Text
 - about 

@@ -43,4 +43,5 @@ document.querySelector(
 
 // Load Local Storage points
 loadFromLocalStorage();
+
 export { myMap };
