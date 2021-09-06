@@ -1,3 +1,5 @@
+// Set up to start parsing file types...removed for time.
+
 import readUpload from './readUpload.js';
 
 function fileParser(file) {
