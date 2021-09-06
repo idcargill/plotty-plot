@@ -2,7 +2,6 @@ import { myMap } from './map/mapSetup.js';
 import { addCoordinatePoint } from './helpers/addCoordinatePoint.js';
 import addDmsPoint from './helpers/addDmsPoint.js';
 import fileParser from './fileUpload/fileParser.js';
-import addPointOnClick from './helpers/addPointOnClick.js';
 import clearLocalHistory from './helpers/clearHistory.js';
 import loadLocalStoragePoints from './helpers/loadLocalStoragePoints.js';
 
@@ -38,11 +37,6 @@ dropSpot.addEventListener('dragover', (ev) => {
 // EVENT Clear Local Storage with Alert Confirmation
 document.querySelector('#clear').addEventListener('click', (e) => {
 	clearLocalHistory(e);
-});
-
-// EVENT Add Point on Click
-document.querySelector('#click-point').addEventListener('click', (e) => {
-	addPointOnClick();
 });
 
 // Set points to show by default

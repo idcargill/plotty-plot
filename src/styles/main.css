@@ -5,10 +5,11 @@ body {
 	max-width: 80%;
 }
 
-/* main {
-	max-width: 80%;
+main {
+	max-width: 95%;
 	margin: auto;
-} */
+	margin-bottom: 100px;
+}
 
 nav {
 	display: flex;
@@ -140,19 +141,33 @@ input[name='title'] {
 	justify-content: space-between;
 }
 
-/* Click-point Button ============================== */
+/* About Page ==============================================*/
 
-#click-point {
-	border-radius: 10px;
-	padding: 5px;
-	color: white;
-	max-width: 100px;
+.references-container {
+	max-width: 60%;
+	text-align: left;
+	margin-left: 15%;
 }
 
-.on {
-	background-color: green;
+.reference-links {
+	display: flex;
+	justify-content: space-between;
 }
 
-.off {
-	background-color: red;
+.reference-links > div {
+	flex: 2 1 0;
+}
+
+#git > svg,
+#git > a {
+	position: relative;
+	bottom: -20px;
+}
+
+footer {
+	max-width: 60%;
+	margin: auto;
+	border: 5px solid rgb(56, 199, 218);
+	border-radius: 5px;
+	padding: 20px;
 }
