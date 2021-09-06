@@ -26,6 +26,8 @@ const dropSpot = document.querySelector('.drop-location');
 dropSpot.addEventListener('drop', (ev) => {
 	ev.preventDefault();
 	console.log(ev.dataTransfer.items);
+	console.log(ev.dataTransfer.files[0]);
+	fileParser(ev.dataTransfer.files[0]);
 });
 dropSpot.addEventListener('dragover', (ev) => {
 	ev.preventDefault();

@@ -3,9 +3,11 @@ const token =
 	'pk.eyJ1IjoiaWRjYXJnaWxsIiwiYSI6ImNrcmh1MGY3bTBvaHgydm80ejhkcjVoMjEifQ.Kzjr5NN2uxIGUBGzgMteLg';
 
 // Map loads into DOM id (needs height)
+// eslint-disable-next-line no-undef
 const myMap = L.map('leafletmap').setView([51.505, -0.09], 5);
 
 // Satalite Map
+// eslint-disable-next-line no-undef
 const satalite = L.tileLayer(
 	'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
 	{
@@ -20,6 +22,7 @@ const satalite = L.tileLayer(
 ).addTo(myMap);
 
 // TOPO Map
+// eslint-disable-next-line no-undef
 const outdoors = L.tileLayer(
 	'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
 	{
@@ -40,12 +43,14 @@ const baseMaps = {
 };
 
 // Empty Overlay container
+// eslint-disable-next-line no-undef
 const emptyLayer = L.layerGroup([]);
 const overlayMaps = {
 	myPoints: emptyLayer,
 };
 
 // Initialize Map Controls
+// eslint-disable-next-line no-undef
 L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 
 // Set points to show by default
