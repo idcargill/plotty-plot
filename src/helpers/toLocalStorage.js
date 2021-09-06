@@ -1,19 +1,36 @@
 // takes in object
 function toLocalStorage(x) {
-	// get Local Points
+	const storage = [];
 	const myPoints = localStorage.getItem('myPoints');
+	// console.log(myPoints);
 
-	// Check for storage, add new point object
 	if (myPoints) {
-		const storage = [];
 		const parsedPoints = JSON.parse(myPoints);
-		storage.push(parsedPoints);
+
+		// Pull array objs and reload storage arr
+		if (parsedPoints.length > 0) {
+			parsedPoints.forEach((i) => {
+				storage.push(i);
+			});
+
+			// Only 1 storage object
+		} else if (parsedPoints) {
+			storage.push(parsedPoints);
+		}
+
+		// Load new object into storage arr
 		storage.push(x);
+		console.log(storage);
+
+		// Load Local storage wtih array of objects
 		const updatedString = JSON.stringify(storage);
 		localStorage.setItem('myPoints', updatedString);
-	} else {
-		const point = JSON.stringify(x);
-		localStorage.setItem('myPoints', point);
+
+		// First item in storage
+	} else if (!myPoints) {
+		storage.push(x);
+		const updatedString = JSON.stringify(x);
+		localStorage.setItem('myPoints', updatedString);
 	}
 }
 

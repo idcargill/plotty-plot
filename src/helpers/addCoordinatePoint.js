@@ -13,13 +13,11 @@ function addCoordinatePoint() {
 	toLocalStorage(result);
 
 	// Add point to map
+	// eslint-disable-next-line no-undef
 	const point = L.circle([lat, lon], pointSettings);
 	point.bindPopup(title);
 
-	// add featureGroup layer
-	// const pointArr = [];
-	// pointArr.push(point);
-
+	// eslint-disable-next-line no-undef
 	let newLayer = L.layerGroup([point]);
 	overlayMaps.myPoints.addLayer(newLayer);
 

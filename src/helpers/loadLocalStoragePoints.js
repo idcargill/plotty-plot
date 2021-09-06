@@ -5,21 +5,19 @@ import { overlayMaps } from '../map/mapSetup.js';
 
 const loadLocalStoragePoints = () => {
 	const myPoints = localStorage.getItem('myPoints');
+	// console.log(myPoints);
 
 	if (myPoints) {
 		const parsedPoints = JSON.parse(myPoints);
 		console.log(parsedPoints);
 
-		parsedPoints.forEach((point) => {
-			const title = point.Title;
-			const lat = point.lat;
-			const lon = point.lon;
+		const pointObj = { Title: title, lat: lat, lon: lon };
+		// console.log(pointObj);
+		const mapPoint = L.circle([lat, lon], pointSettings);
 
-			const mapPoint = L.circle([lat, lon], pointSettings);
-			mapPoint.bindPopup(title);
-			let newLayer = L.layerGroup([mapPoint]);
-			overlayMaps.myPoints.addLayer(newLayer);
-		});
+		mapPoint.bindPopup(title);
+		let newLayer = L.layerGroup([mapPoint]);
+		overlayMaps.myPoints.addLayer(newLayer);
 	} else {
 		console.log('local storage is empty');
 	}
