@@ -3,7 +3,7 @@
 import { pointSettings } from '../map/mapSettings.js';
 import { overlayMaps } from '../map/mapSetup.js';
 
-const loadFromLocalStoragePoints = () => {
+const loadFromLocalStorage = () => {
 	const myPoints = localStorage.getItem('myPoints');
 
 	if (myPoints) {
@@ -28,4 +28,4 @@ const loadFromLocalStoragePoints = () => {
 	}
 };
 
-export default loadFromLocalStoragePoints;
+export default loadFromLocalStorage;
