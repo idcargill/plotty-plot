@@ -1,12 +1,34 @@
 :root {
-	--base: rgb(244, 245, 202);
+	--base: rgba(241, 241, 213, 0.5);
+	--darkBase: rgb(187, 189, 152);
 	--navLight: rgba(80, 77, 77, 0.4);
 	--navDark: rgba(80, 77, 77, 0.8);
 	--cream: rgb(247, 247, 247);
 	--lightBlue: rgb(93, 190, 247);
+	--darkBlue: rgb(0, 0, 255);
+	--buttonColor: rgb(86, 102, 82);
+	--darkButton: rgb(9, 92, 20);
+	--text: rgb(39, 38, 38);
+}
+
+@keyframes buttonHover {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.2);
+		background-color: var(--darkButton);
+	}
+}
+
+@keyframes nav {
+	to {
+		background-color: var(--navDark);
+	}
 }
 
 body {
+	color: var(--text);
 	text-align: center;
 	background-image: url('../../images/topoImg.jpg');
 	margin: 0;
@@ -29,9 +51,9 @@ nav {
 	color: var(--cream);
 	display: flex;
 	flex-wrap: wrap;
-	background-color: var(--navDark);
+	background-color: var(--navLight);
 	border-radius: 10px;
-	margin: 0 auto 10px auto;
+	margin: 0 auto 5px auto;
 	max-width: 75%;
 	justify-content: space-evenly;
 }
@@ -42,11 +64,22 @@ nav a {
 	text-decoration: none;
 	flex: 2 0 auto;
 	border-radius: 10px;
+	z-index: 2;
 }
 
 nav a:hover {
-	background-color: var(--navDark);
-	font-weight: 600;
+	animation-name: nav;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-direction: alternate;
+}
+
+/* Main Map ================= */
+#leafletmap {
+	height: 500px;
+	width: 100%;
+	z-index: 1;
+	border-radius: 20px 50px;
 }
 
 /* HOMEPAGE ========================= */
@@ -59,33 +92,41 @@ nav a:hover {
 	margin: 5px;
 }
 
-#leafletmap {
-	height: 440px;
-	border-radius: 20px 50px;
-}
-
 /* File Containger GRID =========== */
 .file-container {
 	display: grid;
-	grid-template-rows: auto auto auto;
+	grid-template-rows: 5% auto auto;
 	grid-template-columns: 40% auto;
 }
 
 .file-container > div {
-	border: 1px solid black;
+	border: 5px solid var(--buttonColor);
+	margin: 10px;
 	padding: 5px;
+	background-color: var(--darkBase);
+	border-radius: 5px;
+}
+
+.file-container div:nth-child(4) {
 	background-color: var(--base);
+	border: none;
+	margin-top: 2px;
 }
 
 .example {
-	font-size: small;
+	font-size: 12px;
 	text-align: left;
 	margin: 0 auto 10px auto;
-	max-width: 60%;
-	background-color: var(--navLight);
+	max-width: 40%;
+	background-color: var(--buttonColor);
+	color: var(--cream);
 	border-radius: 5px;
 	padding: 5px;
 	min-height: 75px;
+}
+
+.coordinate {
+	grid-row: 2;
 }
 
 .coordinate form {
@@ -113,13 +154,13 @@ nav a:hover {
 }
 
 .upload {
-	grid-row: 2;
+	grid-row: 3;
 	grid-column: 1/3;
 }
 
 /* DMS ================= */
 .dms {
-	grid-row: 1;
+	grid-row: 2;
 	grid-column: 2/3;
 	font-size: smaller;
 }
@@ -174,8 +215,28 @@ nav a:hover {
 
 /* Clear History Button ======== */
 .bottom-btn {
-	grid-row: 3;
+	grid-row: 1;
 	grid-column: 1/3;
+}
+
+#clear {
+	padding: 10px;
+	border-radius: 5px;
+	margin-top: -10px;
+	background-color: var(--buttonColor);
+	color: var(--cream);
+}
+
+#clear:hover {
+	cursor: pointer;
+	animation-name: buttonHover;
+	animation-duration: 0.3s;
+	animation-fill-mode: forwards;
+}
+
+#clear:active {
+	background-color: var(--darkBlue);
+	color: var(--cream);
 }
 
 /* add-point buttons ==============*/
@@ -185,19 +246,22 @@ nav a:hover {
 	width: 60px;
 	margin: auto;
 	padding: 10px;
-	background-color: var(--lightBlue);
+	background-color: var(--buttonColor);
 	color: var(--cream);
 	margin-top: 10px;
 	font-size: 10px;
+	cursor: pointer;
 }
 
 .add-btn:hover {
-	background-color: var(--lightBlue);
-	color: blue;
+	background-color: var(--buttonColor);
+	animation: buttonHover;
+	animation-duration: 0.5s;
+	animation-direction: alternate;
+	animation-fill-mode: both;
 }
 
 .add-btn:active {
-	background-color: blue;
 	color: var(--cream);
 }
 
@@ -221,7 +285,6 @@ form input {
 
 .reference-links {
 	display: flex;
-	/* justify-content: space-between; */
 }
 
 .reference-links > div {
@@ -237,10 +300,11 @@ form input {
 
 footer {
 	max-width: 70%;
-	margin: 200px auto 0 auto;
-	border: 5px solid var(--lightBlue);
+	margin: 15px auto 0 auto;
+	border: 5px solid var(--buttonColor);
 	border-radius: 5px;
-	padding: 20px;
+	padding: 10px;
+	background-color: var(--darkBase);
 }
 
 .about h4 {
@@ -256,20 +320,35 @@ footer {
 }
 
 /* HOW TO Page ======================== */
-.main-how-to {
+.main-how-to,
+.about {
 	text-align: left;
 	margin: auto;
 	max-width: 70%;
+	height: 600px;
+	background-color: var(--darkBase);
+	padding: 10px;
+	border: 5px solid var(--buttonColor);
+	border-radius: 5px;
 }
 
-.main-how-to div {
+.main-how-to div,
+.about div {
 	margin: 50px;
+	/* background-color: var(--darkBase); */
 }
 
-.main-how-to p {
+.main-how-to p,
+.about p {
 	padding-left: 20px;
 }
 
 p {
 	line-height: 1.5;
+}
+
+h1 {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+	transform: scale(1.5);
 }
