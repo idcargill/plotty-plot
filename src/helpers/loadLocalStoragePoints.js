@@ -11,8 +11,8 @@ const loadLocalStoragePoints = () => {
 
 		for (let point in parsedPoints) {
 			const title = parsedPoints[point].Title;
-			const lat = parseFloat(parsedPoints[point].lat);
-			const lon = parseFloat(parsedPoints[point].lon);
+			const lat = parsedPoints[point].lat;
+			const lon = parsedPoints[point].lon;
 
 			const mapPoint = L.circle([lat, lon], pointSettings);
 			mapPoint.bindPopup(title);

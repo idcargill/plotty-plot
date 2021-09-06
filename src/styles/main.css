@@ -1,14 +1,23 @@
 body {
 	text-align: center;
-	background-color: azure;
+	/* background-color: azure; */
+	background-image: url('../../images/topoImg.jpg');
 	margin: auto;
-	max-width: 80%;
+	max-width: 70%;
+	/* filter: grayscale(40%); */
 }
 
 main {
-	max-width: 95%;
+	max-width: 80%;
 	margin: auto;
 	margin-bottom: 100px;
+}
+
+.gps-points-wrapper {
+	background-color: rgb(234, 235, 172);
+	padding: 10px;
+	border-radius: 10px;
+	margin-top: 4px;
 }
 
 nav {
@@ -35,7 +44,7 @@ nav a:hover {
 }
 
 #leafletmap {
-	height: 500px;
+	height: 400px;
 	border-radius: 20px 50px;
 }
 
@@ -81,7 +90,7 @@ nav a:hover {
 }
 
 .bottom-btn {
-	grid-row: 1;
+	grid-row: 3;
 	grid-column: 1/4;
 }
 
@@ -166,8 +175,10 @@ input[name='title'] {
 
 footer {
 	max-width: 60%;
-	margin: auto;
+	/* margin: auto; */
 	border: 5px solid rgb(56, 199, 218);
 	border-radius: 5px;
 	padding: 20px;
+	position: fixed;
+	bottom: 20px;
 }
